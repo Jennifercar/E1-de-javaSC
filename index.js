@@ -5,17 +5,11 @@ class Pizza {
 		this.ingredientes = ingredientes;
 		this.precio = precio;
 	
-
-		
 	}
-	
-
 	mostrarTipoPizza () {
         console.log('La pizza:' +this.tipo + ' cuesta:' + this.precio);
     }
 }
-
-
 
 let caprese = new Pizza(1,'caprese','tomate y albaca',1500);
 let jyq = new Pizza(2,'jyq','jamon y queso',1200);
@@ -24,12 +18,25 @@ let muzza = new Pizza(4,'muzza','muzarela salsa de tomate y oregano',1000);
 let especial = new Pizza(5,'especial','pollo salsa de tomate y muzarella',1200);
 let humita = new Pizza(6,'humita','cebolla choclo y muzarela',1500);
 
+let pizzas= [caprese,jyq,anchoas,muzza, especial,humita];
+
+console.log('....¿Que precio tiene cada pizza?.....')
 caprese.mostrarTipoPizza();
 jyq.mostrarTipoPizza();
 anchoas.mostrarTipoPizza();
 muzza.mostrarTipoPizza();
 especial.mostrarTipoPizza();
 humita.mostrarTipoPizza();
+
+console.log('....Cuales son la pizzas con un id impar?....')
+function esImpar(pizzasImpares){
+    if (
+        (pizzasImpares.id %2) !=0
+    )
+    console.log("La pizza " + pizzasImpares.tipo + " tiene un ID impar: " + pizzasImpares.id)
+}
+
+console.log(pizzas.forEach(esImpar))
 
 let caprese1= 1500
 let jyq1=1500
@@ -65,3 +72,9 @@ if (humita1 < 600) {
 	console.log(' no sale menos que 600$')
 } else {console.log('La pizza humita sale mas de 600$') }
 
+console.log('....¿Que ingredientes tiene la pizza?...')
+
+function verIngredientes(ingredientesPizza){
+    console.log("La pizza " + ingredientesPizza.tipo + " contiene los siguientes ingredientes: " + ingredientesPizza.ingredientes)
+}
+console.log(pizzas.forEach(verIngredientes))
